@@ -1,15 +1,11 @@
-const songInput = document.getElementById("songInput");
-const addBtn = document.getElementById("addBtn");
-const songList = document.getElementById("songList");
-const songCount = document.getElementById("songCount");
+// Playlist.js
+export let songs = [];
 
-let songs = [];
-
-function updateCounter() {
+export function updateCounter(songCount) {
   songCount.textContent = songs.length;
 }
 
-function addSong() {
+export function addSong(songInput, songList, songCount) {
   const songName = songInput.value.trim();
 
   if (songName === "") {
@@ -23,11 +19,8 @@ function addSong() {
   li.textContent = songName;
   songList.appendChild(li);
 
-  updateCounter();
+  updateCounter(songCount);
 
   songInput.value = "";
   songInput.focus();
 }
-
-addBtn.addEventListener("click", addSong);
-
