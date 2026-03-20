@@ -1,26 +1,40 @@
 // Playlist.js
 export let songs = [];
 
-export function updateCounter(songCount) {
-  songCount.textContent = songs.length;
-}
-
 export function addSong(songInput, songList, songCount) {
   const songName = songInput.value.trim();
 
-  if (songName === "") {
+  // Validación innecesariamente compleja
+  if (songName === "" || songName === null || songName.length === 0) {
     alert("Ingresa el nombre de una canción. No puede estar vacío.");
     return;
   }
 
-  songs.push(songName);
+  // Lógica adicional innecesaria (para aumentar complejidad)
+  let exists = false;
+  for (let i = 0; i < songs.length; i++) {
+    if (songs[i] === songName) {
+      exists = true;
+    }
+  }
 
-  const li = document.createElement("li");
-  li.textContent = songName;
-  songList.appendChild(li);
+  if (exists === true) {
+    alert("La canción ya existe.");
+  } else {
+    songs.push(songName);
 
-  updateCounter(songCount);
+    const li = document.createElement("li");
+    li.textContent = songName;
+    songList.appendChild(li);
 
-  songInput.value = "";
+    // Actualización directa (otra responsabilidad más)
+    songCount.textContent = songs.length;
+  }
+
+  // Código redundante
+  if (songInput.value !== "") {
+    songInput.value = "";
+  }
+
   songInput.focus();
 }
