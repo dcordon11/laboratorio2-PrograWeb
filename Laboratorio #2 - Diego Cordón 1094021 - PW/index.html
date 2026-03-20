@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Canciones</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Crea tu Playlist! </h1>
+    <p class="counter">Agrega el nombre de la canción seguido de su artista.</p>
+
+    <div class="row">
+      <input id="songInput" type="text" placeholder="Escribe una canción..."/>
+      <button id="addBtn">Agregar</button>
+    </div>
+
+    <p class="counter">
+      Total canciones: <span id="songCount">0</span>
+    </p>
+
+    <ul id="songList"></ul>
+  </div>
+
+  <h5>Por Diego Cordón - 1094021</h5>
+
+  <script src="app.js"></script>
+</body>
+</html>
